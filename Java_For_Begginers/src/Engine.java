@@ -1,6 +1,6 @@
 public class Engine {
-    Integer power;
-    Integer capacity;
+    private Integer power;
+    private Integer capacity;
 
     public void printPower(){
         System.out.println(power);

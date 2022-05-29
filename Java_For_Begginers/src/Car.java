@@ -1,7 +1,7 @@
 public class Car {
-    public String name;
-    public Engine engine;
-    public int maxSpeed;
+    private String name;
+    private Engine engine;
+    private int maxSpeed;
 
     public void printName(){
         System.out.println(name);
