@@ -1,13 +1,19 @@
 public class App {
     public static void main(String[] args) {
 
-        Student student1 = new Student("Kasia");
-        Student student2 = new Student("Zosia");
-        Student student3 = new Student("Ola");
+        Car car1 = new Car();
+        car1.setName("car1");
+        car1.setMaxSpeed(200);
+        Car car2 = new Car();
+        car2.setName("car2");
+        car2.setMaxSpeed(200);
 
-        student1.printName(); System.out.println(student1.getExamDate());
-        student2.printName(); System.out.println(student2.getExamDate());
-        student3.printName(); System.out.println(student3.getExamDate());
-
+        if (car1.getMaxSpeed() > car2.getMaxSpeed()) {
+            System.out.println(car1.getName());
+        } else if (car2.getMaxSpeed() > car1.getMaxSpeed()) {
+            System.out.println(car2.getName());
+        } else {
+            System.out.println("Rowne");
+        }
     }
 }
