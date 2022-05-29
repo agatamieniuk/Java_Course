@@ -2,16 +2,22 @@ public class App {
     private static final Task task = new Task();
 
     public static void main(String[] args) {
-
-
-        Vehicle car = new Car();
-        Vehicle boat = new Boat();
-
+        Car car = new Car();
         car.isDamaged = true;
-        boat.isDamaged = false;
+        Boat boat = new Boat();
 
-        car.repair();
-        System.out.println(car.isDamaged());
+        Vehicle[] vehicles = {car, boat};
+
+        Workshop workshop = new Workshop();
+        workshop.vehicles(vehicles);
+
+        System.out.println(workshop.getVehiclesAmount());
+
+        System.out.println(car.isDamaged);
+        System.out.println(boat.isDamaged);
+        workshop.repairAll();
+        System.out.println(car.isDamaged);
+        System.out.println(boat.isDamaged);
     }
 }
 
