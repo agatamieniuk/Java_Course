@@ -45,6 +45,6 @@ public class Car implements Vehicle{
 
     @Override
     public void printType() {
-        System.out.println(getClass().getSimpleName());
+        System.out.println("Car override");
     }
 }

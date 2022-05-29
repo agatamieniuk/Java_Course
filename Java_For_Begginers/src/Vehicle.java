@@ -1,3 +1,5 @@
 public interface Vehicle {
-    public void printType();
+    public default void printType(){
+        System.out.println(getClass().getSimpleName());
+    }
 }
