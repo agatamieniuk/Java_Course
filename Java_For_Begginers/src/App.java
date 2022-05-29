@@ -1,21 +1,15 @@
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
 
-        getEven(19);
+    Double a;
+    Double b;
+        Scanner scanner = new Scanner(System.in);
+        a = scanner.nextDouble();
+        b = scanner.nextDouble();
+        System.out.println(a+b);
 
-
-    }
-
-    public static void getEven(int num) {
-        for (int i = 0; i <= num; i++) {
-            if (i % 2 == 0) {
-                continue;
-            }
-            if (i % 11 == 0) {
-                break;
-            }
-            System.out.println(i);
-        }
     }
 }
 
