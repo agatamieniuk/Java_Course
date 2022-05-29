@@ -8,8 +8,9 @@ public class App {
         Car car = new Car();
         car.engine = engine;
         car.name = "Joe's Car";
-        System.out.println(car.engine.capacity + " " + car.engine.power);
 
         car.printName();
+        car.engine.printPower();
+        car.engine.printCapacity();
     }
 }
