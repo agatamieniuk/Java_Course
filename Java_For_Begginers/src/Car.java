@@ -2,6 +2,7 @@ public class Car {
     private String name;
     private Engine engine;
     private int maxSpeed;
+    private Color color;
 
     public void printName(){
         System.out.println(name);
@@ -32,5 +33,13 @@ public class Car {
 
     public void setMaxSpeed(int maxSpeed) {
         this.maxSpeed = maxSpeed;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }
