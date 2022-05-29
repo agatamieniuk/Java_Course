@@ -1,23 +1,13 @@
 public class App {
     public static void main(String[] args) {
-        //tworzenie obiektów
-        MyClass myClass1 = new MyClass();
-        MyClass myClass2 = new MyClass();
+        Engine engine = new Engine();
+        engine.capacity = 100;
+        engine.power = 1000;
+        System.out.println(engine.capacity + " " + engine.power);
 
-        //ustawienie wartości dla obiektu myClass1
-        myClass1.number = 12;
-        myClass1.text = "obiekt 1";
-
-        //ustawienie wartości dla obiektu myClass2
-        myClass2.number = 13;
-        myClass2.text = "obiekt 2";
-
-        //wypisanie wartości obiektu myClass1
-        System.out.println(myClass2.number);
-        System.out.println(myClass2.text);
-
-        //wypisanie wartości obiektu myClass2
-        System.out.println(myClass1.number);
-        System.out.println(myClass1.text);
+        Engine engine2 = new Engine();
+        engine2.capacity = 200;
+        engine2.power = 2000;
+        System.out.println(engine2.capacity + " " + engine2.power);
     }
 }
