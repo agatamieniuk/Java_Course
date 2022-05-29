@@ -1,4 +1,4 @@
-public class Car {
+public class Car extends Vehicle{
     private String name;
     private Engine engine;
     private int maxSpeed;
