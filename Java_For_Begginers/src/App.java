@@ -3,9 +3,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        Car car = new Car();
-        car.printNameAbstract();
-        car.printNameNonAbstract();
+
+        Vehicle car = new Car();
+        Vehicle boat = new Boat();
+
+        car.isDamaged = true;
+        boat.isDamaged = false;
+
+        car.repair();
+        System.out.println(car.isDamaged());
     }
 }
 
