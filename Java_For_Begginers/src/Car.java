@@ -1,5 +1,7 @@
 public class Car {
     public String name;
+    public Engine engine;
+
     public int maxSpeed;
 
     public Car() {
