@@ -10,13 +10,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        Car car = new Car();
-        Vehicle vehicle = new Vehicle();
-
-        car.id = 5;
-        vehicle.id = 10;
-        car.printId();
-        vehicle.printId();
+    Vehicle car = new Car();
+    car.printType();
+    Vehicle boat = new Boat();
+    boat.printType();
     }
 }
 

@@ -1,7 +1,3 @@
-public class Vehicle {
-    public int id;
-
-    public void printId(){
-        System.out.println(id);
-    }
+public interface Vehicle {
+    public void printType();
 }

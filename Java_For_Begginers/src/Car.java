@@ -1,4 +1,4 @@
-public class Car extends Vehicle{
+public class Car implements Vehicle{
     private String name;
     private Engine engine;
     private int maxSpeed;
@@ -41,5 +41,10 @@ public class Car extends Vehicle{
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    @Override
+    public void printType() {
+        System.out.println(getClass().getSimpleName());
     }
 }
