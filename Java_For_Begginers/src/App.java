@@ -1,19 +1,15 @@
 public class App {
     public static void main(String[] args) {
-
-        Car car1 = new Car();
-        car1.setName("car1");
-        car1.setMaxSpeed(200);
-        Car car2 = new Car();
-        car2.setName("car2");
-        car2.setMaxSpeed(200);
-
-        if (car1.getMaxSpeed() > car2.getMaxSpeed()) {
-            System.out.println(car1.getName());
-        } else if (car2.getMaxSpeed() > car1.getMaxSpeed()) {
-            System.out.println(car2.getName());
-        } else {
-            System.out.println("Rowne");
-        }
+    isNumberEven(3);
+    isNumberEven(2);
+    }
+    public static int isNumberEven(int i){
+        switch (i % 2) {
+            case 0:
+                System.out.println("Parzysta");
+                break;
+            case 1:
+                System.out.println("Nieparzysta");
+        }return i;
     }
 }
