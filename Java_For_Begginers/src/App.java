@@ -5,9 +5,9 @@ public class App {
         Student student2 = new Student("Zosia");
         Student student3 = new Student("Ola");
 
-        student1.printName();
-        student2.printName();
-        student3.printName();
+        student1.printName(); System.out.println(student1.getExamDate());
+        student2.printName(); System.out.println(student2.getExamDate());
+        student3.printName(); System.out.println(student3.getExamDate());
 
     }
 }
