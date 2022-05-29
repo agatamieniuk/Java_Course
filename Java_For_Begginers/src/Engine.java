@@ -5,6 +5,7 @@ public class Engine {
     public void printPower(){
         System.out.println(power);
     }
+
     public void printCapacity(){
         System.out.println(capacity);
     }
