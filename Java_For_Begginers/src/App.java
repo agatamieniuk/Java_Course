@@ -3,11 +3,9 @@ public class App {
 
     public static void main(String[] args) {
 
-    MyGeneric<String> myGeneric = new MyGeneric<>("Liść");
-    myGeneric.printItem();
-
-    MyGeneric<Integer> myGeneric1 = new MyGeneric<Integer>(2);
-    myGeneric1.printItem();
+        Car car = new Car();
+        car.printNameAbstract();
+        car.printNameNonAbstract();
     }
 }
 

@@ -1,4 +1,4 @@
-public class Car implements Vehicle{
+public class Car extends AbstractCar implements Vehicle{
     private String name;
     private Engine engine;
     private int maxSpeed;
@@ -46,5 +46,10 @@ public class Car implements Vehicle{
     @Override
     public void printType() {
         System.out.println("Car override");
+    }
+
+    @Override
+    public void printNameAbstract() {
+        System.out.println("Abstract from Car");
     }
 }
