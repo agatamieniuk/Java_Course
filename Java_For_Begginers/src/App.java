@@ -1,10 +1,9 @@
 public class App {
     public static void main(String[] args) {
 
-        int i = 10;
-        do {
+        int a = 10;
+        for (int i = 0; i <= a; i++){
             System.out.println(i);
-            i--;
-        } while (i > 0);
+        }
     }
 }
