@@ -1,29 +1,24 @@
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
-import java.util.Scanner;
 
 public class App {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
-    public static void main(String[] args) throws IOException {
-        Path path1 = Path.of("file.txt");
-        Scanner scanner = new Scanner(System.in);
-        String line = "";
-        do {
-            line = line.concat(scanner.nextLine() + "\n");
-//            System.out.println(line);
-            Files.writeString(path1, line);
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
 
-        }
-        while (!line.contains("#"));
+        Car obj = CarFactory.createRandomCar();
+        String json = objectWriter.writeValueAsString(obj);
 
-        List<String> strings = Files.readAllLines(path1);
-        for(String string: strings){
-            System.out.println(string);
-        }
+        System.out.println(obj);
+        System.out.println(json);
 
-
+        Car fromJson = objectMapper.readValue(json, Car.class);
+        System.out.println(fromJson);
+        System.out.println(obj.equals(fromJson));
 
     }
 }
