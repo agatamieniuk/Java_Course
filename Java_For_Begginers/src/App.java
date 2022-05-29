@@ -1,37 +1,22 @@
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class App {
     private static final Task task = new Task();
-    public static void main(String[] args) throws IOException, InterruptedException {
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
+    public static void main(String[] args) {
 
         Car obj = CarFactory.createRandomCar();
 
-        List<Car> cars = new ArrayList<>();
-        cars.add(obj);
-        cars.add(obj);
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setPrettyPrinting();
+        Gson gson = gsonBuilder.create();
 
-        String json = objectWriter.writeValueAsString(cars);
-        for(Car car: cars){
-            System.out.println(car);
-        }
+        String json = gson.toJson(obj);
         System.out.println(json);
 
-        TypeReference<List<Car>> typeReference = new TypeReference<>() {};
-        List<Car> fromJson = objectMapper.readValue(json, typeReference);
-
+        Car fromJson = gson.fromJson(json, Car.class);
         System.out.println(fromJson);
-        System.out.println(cars.equals(fromJson));
-
+        System.out.println(fromJson.equals(obj));
 
 
     }
