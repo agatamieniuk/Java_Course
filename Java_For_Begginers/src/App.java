@@ -1,23 +1,32 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-        int intParam = 0;
-        boolean flag = true;
+        String fromFile = "";
+        Path path = Path.of("src", "Color.java");
+        try {
+            fromFile = Files.readString(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(fromFile);
 
-        do {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                intParam = scanner.nextInt();
-                System.out.println(intParam);
-                flag = false;
-            } catch (Exception e) {
-                System.out.println("Podaj liczbę!");
-            }
-        }while(flag);
-
-
+        Path path1 = Path.of("file.txt");
+//        try {
+//            Files.write(path1, fromFile.getBytes());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        try {
+            Files.writeString(path1, fromFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
