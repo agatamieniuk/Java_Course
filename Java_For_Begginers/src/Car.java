@@ -1,13 +1,12 @@
 public class Car {
     public String name;
     public Engine engine;
-
     public int maxSpeed;
 
-    public Car() {
+    public void printName(){
+        System.out.println(name);
     }
 
-    public Car(String name) {
-        this.name = name;
+    public Car() {
     }
 }

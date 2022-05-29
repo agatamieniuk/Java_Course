@@ -7,13 +7,9 @@ public class App {
 
         Car car = new Car();
         car.engine = engine;
+        car.name = "Joe's Car";
         System.out.println(car.engine.capacity + " " + car.engine.power);
 
-
-        Car car2 = new Car();
-        engine.power = 200;
-        engine.capacity = 2000;
-        car2.engine = engine;
-        System.out.println(car2.engine.capacity + " " + car2.engine.power);
+        car.printName();
     }
 }
