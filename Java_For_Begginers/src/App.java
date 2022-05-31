@@ -2,16 +2,22 @@ public class App {
     private static final Task task = new Task();
 
     public static void main(String[] args) {
-        System.out.println(App.concatenate("info", "Share"));
 
+        System.out.println(App.sumOfDigits(123));
 
-    }
+   }
 
-    public static String concatenate(String firstWord, String secondWord) {
-        String concat = firstWord.concat(secondWord);
-        return concat;
+    public static Integer sumOfDigits(Integer x) {
+        Integer sum = 0;
+        String number = x.toString();
+        String[] split = number.split("");
+        for (String splitStringNumber : split) {
+            Integer newX = sum.parseInt(splitStringNumber);
+            sum = sum + newX;
+        }return sum;
     }
 }
+
 
 
 
