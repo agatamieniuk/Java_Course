@@ -3,9 +3,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        Calculator calculator = new Calculator();
-        calculator.calculate(3, 0, "/");
-        calculator.calculate(3, 1, "+");
+Menu menu = new Menu();
+
+
+
 
    }
 
