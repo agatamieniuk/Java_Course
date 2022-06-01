@@ -3,20 +3,14 @@ public class App {
 
     public static void main(String[] args) {
 
-        System.out.println(App.sumOfDigits(123));
+        Calculator calculator = new Calculator();
+        calculator.calculate(3, 0, "/");
+        calculator.calculate(3, 1, "+");
 
    }
 
-    public static Integer sumOfDigits(Integer x) {
-        Integer sum = 0;
-        String number = x.toString();
-        String[] split = number.split("");
-        for (String splitStringNumber : split) {
-            Integer newX = sum.parseInt(splitStringNumber);
-            sum = sum + newX;
-        }return sum;
-    }
 }
+
 
 
 
