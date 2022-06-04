@@ -1,3 +1,5 @@
+package calculation;
+
 import java.util.Objects;
 
 public class ValuesHolder {
@@ -7,6 +9,10 @@ public class ValuesHolder {
     public ValuesHolder(int a, int b) {
         this.a = a;
         this.b = b;
+    }
+
+    int getResult(Calculation calculation){
+        return calculation.calculate(a,b);
     }
 
     @Override
@@ -32,7 +38,7 @@ public class ValuesHolder {
 
     @Override
     public String toString() {
-        return "ValuesHolder{" +
+        return "calculation.operation.ValuesHolder{" +
                 "a=" + a +
                 ", b=" + b +
                 '}';
