@@ -5,9 +5,9 @@ public class CalculationApp {
         int b = 3;
 
         ValuesHolder holder1 = new ValuesHolder(a, b);
-        ValuesHolder holder2 = new ValuesHolder(a, b);
-        /*bez ustawienia equals() - hash code() metoda domyslna z klasy Object porownuje w equals referencje (==),
-        dopiero po nadpisaniu ww. metod porównywane są wartości*/
+        Object holder2 = new ValuesHolder(a, b);
         System.out.println(holder1.equals(holder2));
+
+        System.out.println(holder1);
     }
 }

@@ -9,12 +9,11 @@ public class ValuesHolder {
         this.b = b;
     }
 
-    //nadpisanie equals-hashCode sprawia, ze nie wywola sie metoda z klasy Object ktora porownuje referencje (==)
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true; //referuje do tego samego miejsca w pamieci
-        if (o == null || getClass() != o.getClass()) return false; //czy sa tej samej klasy (jesli nie sa to na pewno nie bedzie to ten sam obiekt)
-        ValuesHolder that = (ValuesHolder) o; //jesli nie sa tego samego miejsca w pamieci i tej samej klasy to wtedy dopiero program porownuje pola obiektow
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ValuesHolder that = (ValuesHolder) o;
         return a == that.a && b == that.b;
     }
 
@@ -31,4 +30,11 @@ public class ValuesHolder {
         return b;
     }
 
+    @Override
+    public String toString() {
+        return "ValuesHolder{" +
+                "a=" + a +
+                ", b=" + b +
+                '}';
+    }
 }
