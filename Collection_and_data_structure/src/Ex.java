@@ -37,6 +37,14 @@ public class Ex {
         return sum;
     }
 
+    public static void ex2a() {
+        Double a = 1.0;
+        Double b = 1.0;
+        System.out.println(a == b);
+        System.out.println(a.equals(b));
+
+    }
+
     public static void ex() {
 
     }
