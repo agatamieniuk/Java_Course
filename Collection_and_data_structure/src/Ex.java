@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Ex {
     public static void ex1a() {
@@ -79,7 +76,7 @@ public class Ex {
         }
         System.out.println(list);
         int value[] = {3, 5, 8};
-        for (int i: value) {
+        for (int i : value) {
 //            System.out.println(i);
             System.out.println("[" + list.indexOf(i) + "] " + i);
         }
@@ -87,19 +84,30 @@ public class Ex {
 
     public static void ex4a() {
         Set<Integer> mySet = new HashSet<>();
-        for(int i = 0; i < 10; i++){
-            if(i % 2 == 0) {
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
                 mySet.add(i);
             }
         }
         System.out.println(mySet);
         System.out.println(mySet.size());
 
-        for(int i = 0; i < 10; i++){
-                mySet.add(i);
+        for (int i = 0; i < 10; i++) {
+            mySet.add(i);
         }
         System.out.println(mySet);
         System.out.println(mySet.size());
+    }
+
+    public static void ex4b() {
+        Set<Integer> mySet = new TreeSet<>();
+        for (int i = 15; i > 0; i--) {
+            mySet.add(i);
+        }
+//        System.out.println(mySet);
+        for (int i : mySet) {
+            System.out.println(i);
+        }
     }
 
     public static void ex() {
