@@ -110,7 +110,19 @@ public class Ex {
         }
     }
 
-    public static void ex() {
+    public static void ex5(String name) {
+        Map<String, Integer> myMap = new HashMap<>();
+        myMap.put("agata", 34);
+        myMap.put("joanna", 34);
+        myMap.put("piotr", 35);
+        myMap.put("piotr", 1);
 
+        if (name.equals("keys")) {
+            System.out.println(myMap.keySet());
+        } else if (name.equals("values")) {
+            System.out.println(myMap.values());
+        } else if (name.equals("all")) {
+            System.out.println(myMap);
+        }
     }
 }
