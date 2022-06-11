@@ -42,7 +42,13 @@ public class Ex {
         Double b = 1.0;
         System.out.println(a == b);
         System.out.println(a.equals(b));
+    }
 
+    public static void ex2b() {
+        String a = "ala";
+        String b = "ala";
+        System.out.println(a == b);
+        System.out.println(a.equals(b));
     }
 
     public static void ex() {
