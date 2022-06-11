@@ -51,6 +51,13 @@ public class Ex {
         System.out.println(a.equals(b));
     }
 
+    public static void ex2c() {
+        String a = new String("ala");
+        String b = new String("ala");
+        System.out.println(a == b);
+        System.out.println(a.equals(b));
+    }
+
     public static void ex() {
 
     }
