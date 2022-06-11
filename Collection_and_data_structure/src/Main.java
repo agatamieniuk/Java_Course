@@ -1,5 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        Ex.ex1a();
+        Ex.ex1b(11);
     }
 }
