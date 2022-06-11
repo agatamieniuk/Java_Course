@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ex {
     public static void ex1a() {
         int[] tab = new int[10];
@@ -56,6 +59,15 @@ public class Ex {
         String b = new String("ala");
         System.out.println(a == b);
         System.out.println(a.equals(b));
+    }
+
+    public static void ex3a() {
+        List<Integer> lista = new ArrayList<>();
+        lista.add(1);
+        lista.add(1);
+        lista.add(2);
+        System.out.println("list: " + lista);
+        System.out.println("size: " + lista.size());
     }
 
     public static void ex() {
