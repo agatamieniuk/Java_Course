@@ -70,6 +70,20 @@ public class Ex {
         System.out.println("size: " + lista.size());
     }
 
+    public static void ex3b() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 10; i > 0; i--) {
+            list.add(i);
+        }
+        System.out.println(list);
+        int value[] = {3, 5, 8};
+        for (int i: value) {
+//            System.out.println(i);
+            System.out.println("[" + list.indexOf(i) + "] " + i);
+        }
+
+    }
+
     public static void ex() {
 
     }
