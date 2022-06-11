@@ -23,6 +23,20 @@ public class Ex {
         }
     }
 
+    public static int ex1c(int b) {
+        int[] tab = new int[b];
+        int sum = 0;
+        for (int i = 0; i < tab.length; i++) {
+            tab[i] = i;
+        }
+        for (int i : tab) {
+//          sum = i + sum;
+            sum += i;
+        }
+//        System.out.println("Sum: " + sum);
+        return sum;
+    }
+
     public static void ex() {
 
     }
