@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Ex {
     public static void ex1a() {
@@ -81,7 +83,23 @@ public class Ex {
 //            System.out.println(i);
             System.out.println("[" + list.indexOf(i) + "] " + i);
         }
+    }
 
+    public static void ex4a() {
+        Set<Integer> mySet = new HashSet<>();
+        for(int i = 0; i < 10; i++){
+            if(i % 2 == 0) {
+                mySet.add(i);
+            }
+        }
+        System.out.println(mySet);
+        System.out.println(mySet.size());
+
+        for(int i = 0; i < 10; i++){
+                mySet.add(i);
+        }
+        System.out.println(mySet);
+        System.out.println(mySet.size());
     }
 
     public static void ex() {
