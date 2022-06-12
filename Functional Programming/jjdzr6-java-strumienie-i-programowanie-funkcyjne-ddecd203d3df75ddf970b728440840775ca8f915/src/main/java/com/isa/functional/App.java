@@ -24,5 +24,9 @@ public class App {
         Integer x = myFirstFunction2.apply("Ala ma kota");//<=uzycie funkcji (nasz Intiger, ktory zwracamy)
         logger.info("Nasz integer: " + x);
 
+        MyFirstFunction<String, String> mySecondFunction = s -> s + " drugi string";
+        String y = mySecondFunction.apply("Parametr zawierajacy pierwszy string i");
+        logger.info(y);
+
     }
 }
