@@ -1,5 +1,6 @@
 package com.isa.functional;
 
+import com.isa.functional.containters.Container;
 import com.isa.functional.myfunctions.MyConsumer;
 import com.isa.functional.myfunctions.MyFirstFunction;
 import com.isa.functional.myfunctions.MyProducer;
@@ -18,12 +19,8 @@ public class App {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
-        MyProducer<String> myProducer = () -> "nie przyjmuje parametrów";
-        String apply = myProducer.apply();
-        logger.info(apply);
-
-        MyProducer<String> myProducer2 = () -> LocalDateTime.now().toString();
-        String localDate = myProducer2.apply();
-        logger.info(localDate);
+        Container<String> container = new Container<>("Alamakota");
+        String value = container.getValue();
+        logger.info(value);
     }
 }
