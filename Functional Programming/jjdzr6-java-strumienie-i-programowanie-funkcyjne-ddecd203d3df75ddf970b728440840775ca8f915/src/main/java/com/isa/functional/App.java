@@ -19,6 +19,7 @@ public class App {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
+        //MAP => zamienia jedne elementy w drugie
         Container<String> container = new Container<>("Ala ma kota");//<= wywołanie konstruktora Container
         logger.info(container.getValue()); //<=getter
 
