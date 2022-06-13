@@ -27,9 +27,17 @@ public class App {
         myList.add("Aaa");
 
         List<Integer> myIntList = myList.stream().map(s -> s.length()).collect(Collectors.toList());//zamieniam mape na stream
-                                                              //Collect(Collectors.toList()) <=zwija streama spowrotem do listy
-                                                           // (ale dostajemy poprzez operacje liste Integerow)
+        //Collect(Collectors.toList()) <=zwija streama spowrotem do listy
+        // (ale dostajemy poprzez operacje liste Integerow)
         logger.info(myIntList.toString());
+
+        //zamiast ifa - FILTR:
+        List<Integer> tylkoParzysteSlowa = myList
+                .stream()//robie streama z listy
+                .map(s -> s.length()) //uzywam mapy zeby zmienic COS na COS INNEGO
+                .filter(s -> s % 2 == 0) //Filtruje ją - jako IF
+                .collect(Collectors.toList()); //zwijan streama spowrotem do listy
+        logger.info(tylkoParzysteSlowa.toString());
 
     }
 }
