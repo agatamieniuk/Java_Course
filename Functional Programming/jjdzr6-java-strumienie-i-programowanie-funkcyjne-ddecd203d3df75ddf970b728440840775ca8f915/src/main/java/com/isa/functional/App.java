@@ -19,8 +19,11 @@ public class App {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
-        Container<String> container = new Container<>("Alamakota");
-        String value = container.getValue();
-        logger.info(value);
+        Container<String> container = new Container<>("Ala ma kota");//<= wywołanie konstruktora Container
+        logger.info(container.getValue()); //<=getter
+
+        Container<Integer> integerContainer = container.map(s->s.length());
+        logger.info(container.getValue() +  " ma długość " + integerContainer.getValue());
+
     }
 }
