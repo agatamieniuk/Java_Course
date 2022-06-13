@@ -3,7 +3,7 @@ package com.isa.functional.myfunctions;
 @FunctionalInterface
 public interface MyFirstFunction<T, R> {
     R apply(T t);
-    
+
     static Integer getSecretNumber() { //metoda statyczna w Interface
         return 1;
     }

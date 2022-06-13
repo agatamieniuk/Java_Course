@@ -1,10 +1,7 @@
 package com.isa.functional;
 
 import com.isa.functional.containters.Container;
-import com.isa.functional.myfunctions.MyConsumer;
-import com.isa.functional.myfunctions.MyFirstFunction;
-import com.isa.functional.myfunctions.MyProducer;
-import com.isa.functional.myfunctions.MyTwoParameterFunction;
+import com.isa.functional.myfunctions.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,12 +16,11 @@ public class App {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
-        //MAP => zamienia jedne elementy w drugie
-        Container<String> container = new Container<>("Ala ma kota");//<= wywołanie konstruktora Container
-        logger.info(container.getValue()); //<=getter
-
-        Container<Integer> integerContainer = container.map(s->s.length());
-        logger.info(container.getValue() +  " ma długość " + integerContainer.getValue());
+        MyFilter<String> myFilter = (mojString -> mojString.length() % 2 == 0);
+        boolean czyParzysty = myFilter.test("Hej");
+        boolean czyParzysty2 = myFilter.test("He");
+        logger.info("Czy parzysty: " + czyParzysty);
+        logger.info("Czy parzysty: " + czyParzysty2);
 
     }
 }
