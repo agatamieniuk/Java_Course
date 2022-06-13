@@ -7,7 +7,10 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Hello world!
@@ -17,21 +20,16 @@ public class App {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
-        String x = null;
-        Optional<String> mabyeX = Optional.ofNullable(x);
-        Optional<Integer> mabyeInteger = mabyeX.map(value -> value.length());
-        logger.info(mabyeX.toString()); //=<pokazuje empty bo Optional usunął nulla
-        logger.info(mabyeInteger.toString());
-        String y = "Agat";
-        Optional<String> mabyeY = Optional.ofNullable(y);
-        logger.info(mabyeY.toString());//podal wartosc Optional[Agata]
+        //zamiast petli FOR
+        List<String> myList = new ArrayList<>(); //tworze liste
+        myList.add("A");
+        myList.add("Aa");
+        myList.add("Aaa");
 
-        Optional<Integer> mabyeInteger2 = mabyeY
-                .map(value -> value.length())
-                .filter(value->value%2==0);
-        logger.info(mabyeInteger2.toString());
-        logger.info(mabyeInteger2.orElse(0) + " "); //zwroc mi wartosc a jesli jej nie ma orElse(), zwroc mi zero
-        logger.info(mabyeInteger2.orElseGet(()->0).toString());// to samo co wyzej tylko zapisane przez lambde
+        List<Integer> myIntList = myList.stream().map(s -> s.length()).collect(Collectors.toList());//zamieniam mape na stream
+                                                              //Collect(Collectors.toList()) <=zwija streama spowrotem do listy
+                                                           // (ale dostajemy poprzez operacje liste Integerow)
+        logger.info(myIntList.toString());
 
     }
 }
