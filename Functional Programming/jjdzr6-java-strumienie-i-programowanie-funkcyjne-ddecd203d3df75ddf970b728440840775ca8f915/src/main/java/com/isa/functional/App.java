@@ -1,6 +1,7 @@
 package com.isa.functional;
 
 import com.isa.functional.containters.Container;
+import com.isa.functional.model.Address;
 import com.isa.functional.myfunctions.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Hello world!
@@ -20,24 +22,31 @@ public class App {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
-        //zamiast petli FOR
-        List<String> myList = new ArrayList<>(); //tworze liste
-        myList.add("A");
-        myList.add("Aa");
-        myList.add("Aaa");
+        List<Address> addressList = new ArrayList<>();
+        addressList.add(new Address("pomorskie", "Gdańsk", "Kubusia", 100));
+        addressList.add(new Address("pomorskie", "Gdynia", "Puchatka", 20));
+        addressList.add(new Address("podlaskie", "Białystok", "Gruntowa", 50));
+        addressList.add(new Address("podlaski", "Zabudów", "Górna", 5));
 
-        List<Integer> myIntList = myList.stream().map(s -> s.length()).collect(Collectors.toList());//zamieniam mape na stream
-        //Collect(Collectors.toList()) <=zwija streama spowrotem do listy
-        // (ale dostajemy poprzez operacje liste Integerow)
-        logger.info(myIntList.toString());
+        List<Address> pomorskie = addressList.stream()
+                .filter(address -> address.getState().equals("pomorskie"))
+                .collect(Collectors.toList());
+        logger.info(pomorskie.toString());
 
-        //zamiast ifa - FILTR:
-        List<Integer> tylkoParzysteSlowa = myList
-                .stream()//robie streama z listy
-                .map(s -> s.length()) //uzywam mapy zeby zmienic COS na COS INNEGO
-                .filter(s -> s % 2 == 0) //Filtruje ją - jako IF
-                .collect(Collectors.toList()); //zwijan streama spowrotem do listy
-        logger.info(tylkoParzysteSlowa.toString());
+        List<Address> miastaNaZ = addressList.stream()
+                .filter(address -> address.getCity().startsWith("Z"))
+                .collect(Collectors.toList());
+        logger.info(miastaNaZ.toString());
+
+        List<String> miasta = addressList.stream()
+                .map(address -> address.getCity())
+                .collect(Collectors.toList());
+        logger.info(miasta.toString());
+
+        List<Boolean> parzysteWojewodztwo = addressList.stream()
+                .map(address -> address.getState().length() % 2 == 0)
+                .collect(Collectors.toList());
+        logger.info(parzysteWojewodztwo.toString());
 
     }
 }

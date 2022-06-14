@@ -29,4 +29,14 @@ public class Address {
     public Integer getPopulation() {
         return population;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "state='" + state + '\'' +
+                ", city='" + city + '\'' +
+                ", stret='" + stret + '\'' +
+                ", population=" + population +
+                '}';
+    }
 }
