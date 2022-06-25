@@ -7,8 +7,20 @@
   <groupId>com.infoshareacademy</groupId>
   <artifactId>JJDZR6-java-kolekcje-i-struktury-danych</artifactId>
   <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-  <name>JJDZR6-java-kolekcje-i-struktury-danych</name>
+    <name>JJDZR6-java-kolekcje-i-struktury-danych</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

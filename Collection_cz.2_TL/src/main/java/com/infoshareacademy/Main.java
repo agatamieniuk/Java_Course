@@ -1,30 +1,34 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.exercises.Ex;
-import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
+import com.infoshareacademy.model.vehicle.Engine;
 
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
+        Engine engine1 = new Engine();
+        Engine engine2 = new Engine();
+        Engine engine3 = new Engine();
+        Engine engine4 = new Engine();
 
-        CarFactory car = new CarFactory();
-        Car randomCar = car.createRandomCar();
-        Car randomCar2 = car.createRandomCar();
-        Car randomCar3 = car.createRandomCar();
+        engine1.setCapacity(1000);
+        engine2.setCapacity(2000);
+        engine3.setCapacity(3000);
+        engine4.setCapacity(1000);
 
-        System.out.println(randomCar);
-        System.out.println(randomCar2);
-        System.out.println(randomCar3);
-        System.out.println("-------------");
+        engine1.setPower(100);
+        engine2.setPower(200);
+        engine3.setPower(300);
+        engine4.setPower(100);
 
-        List<Car> carList = ex2(randomCar, randomCar2, randomCar2);
-        for(Car cars: carList){
-            System.out.println(cars);
+        Set<Engine> engines = ex3(engine1, engine2, engine3, engine4);
+
+        System.out.println(engines.size());
+        for (Engine car : engines) {
+            System.out.println(car);
         }
-//        System.out.println(carList); <=alternatywne wyswietlenie listy
 
 
     }
@@ -60,6 +64,15 @@ public class Main {
 //            carList.add(cars[i]);
 //        }
         return new ArrayList<>(Arrays.asList(cars)); //zapis jako jednolinijkowiec
+    }
+
+    public static Set<Engine> ex3(Engine... engines) {
+//        Set<Engine> setEngine = new HashSet<>();
+//
+//        for(Engine eng: engines){
+//            setEngine.add(eng);
+//        }
+        return new HashSet<>(Arrays.asList(engines)); //zapis jednolinijkowy
     }
 
     public static void ex() {
