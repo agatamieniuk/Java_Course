@@ -8,23 +8,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(1,11);
-        map.put(2,23);
-        map.putIfAbsent(3,12);
-        map.putIfAbsent(3,13);
+        Integer[] table = ex1a(1, 2, 3, 4);
 
-        Set<Integer> keys = map.keySet();
-        Collection<Integer> values = map.values();
-
-        System.out.println(keys);
-        System.out.println(values);
-
-        Set<Map.Entry<Integer, Integer>> entries = map.entrySet();
-        for(Map.Entry entry: entries){ //wyswietlenie par klucz=wartosc dzieki entrySet();
-            System.out.println(entry);
+        for(Integer tables: table){
+            System.out.println(tables);
         }
-
-
     }
+
+    public static Integer[] ex1a(Integer...params) {
+        Integer[] tab = new Integer[params.length];
+
+         for(int i = 0; i < params.length; i++){
+            tab[i] = params[i]*2;
+        }return tab;
+    }
+
 }
