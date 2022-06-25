@@ -1,0 +1,9 @@
+{
+  "name": "Ferrari",
+  "maxSpeed": 170,
+  "engine": {
+    "power": 170,
+    "capacity": 3000
+  },
+  "color": "BLUE"
+}
