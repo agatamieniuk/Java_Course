@@ -8,29 +8,8 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        Engine engine1 = new Engine();
-        Engine engine2 = new Engine();
-        Engine engine3 = new Engine();
-        Engine engine4 = new Engine();
 
-        engine1.setCapacity(1000);
-        engine2.setCapacity(2000);
-        engine3.setCapacity(3000);
-        engine4.setCapacity(1000);
-
-        engine1.setPower(100);
-        engine2.setPower(200);
-        engine3.setPower(300);
-        engine4.setPower(100);
-
-        Set<Engine> engines = ex3(engine1, engine2, engine3, engine4);
-
-        System.out.println(engines.size());
-        for (Engine car : engines) {
-            System.out.println(car);
-        }
-
-
+        ex4();
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -74,6 +53,39 @@ public class Main {
 //        }
         return new HashSet<>(Arrays.asList(engines)); //zapis jednolinijkowy
     }
+
+    public static List<Integer> randomNumEx4() {
+        Random random = new Random();
+        List<Integer> randomNumList = new ArrayList<>();
+
+        for (int i = 0; i <= 10; i++) {
+            int randomNum = random.nextInt(1, 51);
+            randomNumList.add(randomNum);
+        }
+        return randomNumList;
+    }
+
+    public static void ex4() {
+        List<Integer> randomInt = randomNumEx4();
+        System.out.println(randomInt);
+
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        map.put(2, new ArrayList<>());
+        map.put(5, new ArrayList<>());
+        map.put(10, new ArrayList<>());
+
+        for (Integer random : randomInt) {//petla po wszystkich kluczach (2, 5, 10)
+            for (Integer key : map.keySet()) {//petla po wszystkich liczbach wylosowanych = randomach
+                if (random % key == 0) { //jesli liczba dzieli sie bez reszty przez dany klucz:
+                    List<Integer> wartoscPodDanymKluczem = map.get(key); //pobranie aktualnej wartości listy pod danym kluczem
+                    wartoscPodDanymKluczem.add(random); //dodanie nowej liczby do listy
+                    map.put(key, wartoscPodDanymKluczem); //nadpisanie wartości listy pod danym kluczem
+                }
+            }
+        }
+        System.out.println(map);
+    }
+
 
     public static void ex() {
     }
