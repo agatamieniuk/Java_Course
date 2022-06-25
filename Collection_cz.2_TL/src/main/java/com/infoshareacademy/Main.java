@@ -15,15 +15,16 @@ public class Main {
         Car randomCar2 = car.createRandomCar();
         Car randomCar3 = car.createRandomCar();
 
-        Car[] cars = ex1b(randomCar, randomCar2, randomCar3);
-
         System.out.println(randomCar);
         System.out.println(randomCar2);
         System.out.println(randomCar3);
         System.out.println("-------------");
-        for (Car random : cars) {
-            System.out.println(random);
+
+        List<Car> carList = ex2(randomCar, randomCar2, randomCar2);
+        for(Car cars: carList){
+            System.out.println(cars);
         }
+//        System.out.println(carList); <=alternatywne wyswietlenie listy
 
 
     }
@@ -44,6 +45,21 @@ public class Main {
             carTab[i] = cars[i];
         }
         return carTab;
+    }
+
+    public static List<Car> ex2(Car... cars) {
+//        List<Car> carList = new ArrayList<>();
+
+//        za pomocą petli forEach:
+//        for(Car car: cars){
+//            carList.add(car);
+//        }
+
+//        to samo za pomocą pętli for:
+//        for (int i = 0; i < cars.length; i++) {
+//            carList.add(cars[i]);
+//        }
+        return new ArrayList<>(Arrays.asList(cars)); //zapis jako jednolinijkowiec
     }
 
     public static void ex() {
