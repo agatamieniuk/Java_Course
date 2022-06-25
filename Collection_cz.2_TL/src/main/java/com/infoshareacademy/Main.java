@@ -1,5 +1,6 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
 
@@ -9,7 +10,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ex4();
+        CarFactory carFactory = new CarFactory();
+        Car car1 = carFactory.createRandomCar();
+        Car car2 = carFactory.createRandomCar();
+        Car car3 = carFactory.createRandomCar();
+        Car car4 = carFactory.createRandomCar();
+
+        Map<String, Car> stringCarMap = ex5a(car1, car2, car3, car4);
+        System.out.println(stringCarMap);
+//        for (String key : stringCarMap.keySet()) {
+//            System.out.println(stringCarMap.get(key));
+//        }
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -86,6 +97,18 @@ public class Main {
         System.out.println(map);
     }
 
+
+    public static Map<String, Car> ex5a(Car... cars) {
+        Map<String, Car> mapa = new HashMap<>();
+
+        for (Car car : cars) {
+            mapa.put(car.getName(), car);
+        }
+        return mapa;
+    }
+
+    public static void ex5b() {
+    }
 
     public static void ex() {
     }
