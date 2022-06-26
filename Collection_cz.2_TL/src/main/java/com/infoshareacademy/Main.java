@@ -14,16 +14,14 @@ public class Main {
         CarFactory car = new CarFactory();
         List<Car> carList = car.createRandomCars(3);
         System.out.println(carList);
-        Collections.sort(carList, new PowerComparator());//nalezy wrzucic obiekt comparatora - u nas PowerComparator
+        //porownanie za pomoca lambdy - porownuje przez dlugosc nazwy
+//        Comparator<Car> nameComparator = (o1, o2)->o1.getName().length()-o2.getName().length(); //<-wersja dluzsza
+        Comparator<Car> nameComparator = Comparator.comparingInt(o -> o.getName().length());//wersja skrócona
+        /*Lambda tez jest implementacją więc tez nam Collections.sort() zadziała*/
+
+        Collections.sort(carList, nameComparator);
         System.out.println(carList);
 
-//Implementacja compare (tu wkleilam aby nie szukac):
-//        public class PowerComparator implements Comparator<Car> {
-//            @Override
-//            public int compare(Car o1, Car o2) {
-//                return o1.getEngine().getPower().compareTo(o2.getEngine().getPower());
-//            }
-//        }
     }
 
     public static Integer[] ex1a(Integer... params) {
