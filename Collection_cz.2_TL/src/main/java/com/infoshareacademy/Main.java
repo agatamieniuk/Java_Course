@@ -1,12 +1,12 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.comparators.CapacityComparator;
-import com.infoshareacademy.comparators.PowerComparator;
 import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -16,8 +16,21 @@ public class Main {
         List<Car> carList = car.createRandomCars(3);
         System.out.println(carList);
 
-        Collections.sort(carList, new CapacityComparator());
-        System.out.println(carList);
+        Comparator<Car> carByCapacity = (o1, o2) -> o2.getEngine().getCapacity().compareTo(o1.getEngine().getCapacity());
+//      Comparator<Car> carByPower = (o1,o2) -> o1.getEngine().getPower() - o2.getEngine().getPower(); //wersja dluzsza by me
+        Comparator<Car> carByPower = Comparator.comparingInt(o -> o.getEngine().getPower()); //wersja krotsza by InteliJ
+//      Comparator<Car> carByColor = (o1, o2) -> o1.getColor().ordinal() - o2.getColor().ordinal();  //wersja dluzsza by me
+        Comparator<Car> carByColor = Comparator.comparingInt(o -> o.getColor().ordinal()); //wersja krotsza by InteliJ
+
+        List<Car> carList1 = ex8a(carList, carByCapacity);
+        carList1.forEach(System.out::println); //wypisuje wszystkie elementy
+
+        List<Car> carList2 = ex8a(carList,carByPower);
+        carList2.forEach(System.out::println);
+//
+        List<Car> carList3 = ex8a(carList, carByColor);
+        carList3.forEach(System.out::println);
+
 
     }
 
@@ -127,14 +140,18 @@ public class Main {
         Iterator<Car> iterator = carList.iterator();
         while (iterator.hasNext()) {
             Car next = iterator.next();
-            if(!iterator.hasNext()){
+            if (!iterator.hasNext()) {
                 iterator.remove();
             }
         }
         System.out.println(carList);
     }
 
-    public static void ex7() {
+    public static List<Car> ex8a(List<Car> carList, Comparator<Car> comparator) {
+        Collections.sort(carList, comparator);
+
+        List<Car> cars = carList;
+        return carList;
     }
 
     public static void ex() {
