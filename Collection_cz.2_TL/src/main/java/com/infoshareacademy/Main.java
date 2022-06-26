@@ -1,5 +1,6 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.comparators.PowerComparator;
 import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
@@ -10,23 +11,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> integers = new ArrayList<>(Arrays.asList(2, 4, 9, 1, 3, 5));
-        Collections.sort(integers);
-        System.out.println(integers);
-
         CarFactory car = new CarFactory();
         List<Car> carList = car.createRandomCars(3);
         System.out.println(carList);
-        Collections.sort(carList);
+        Collections.sort(carList, new PowerComparator());//nalezy wrzucic obiekt comparatora - u nas PowerComparator
         System.out.println(carList);
 
-//Implementacja compareTo z klasy Comparable w klasie Car (tu wkleilam aby nie szukac):
-//        @Override
-//        public int compareTo(Object o) {
-//            Car car = (Car) o;
-//            return Integer.compare(this.maxSpeed, car.getMaxSpeed());
+//Implementacja compare (tu wkleilam aby nie szukac):
+//        public class PowerComparator implements Comparator<Car> {
+//            @Override
+//            public int compare(Car o1, Car o2) {
+//                return o1.getEngine().getPower().compareTo(o2.getEngine().getPower());
+//            }
 //        }
-
     }
 
     public static Integer[] ex1a(Integer... params) {
