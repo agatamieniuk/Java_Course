@@ -1,5 +1,6 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.comparators.CapacityComparator;
 import com.infoshareacademy.comparators.PowerComparator;
 import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
@@ -14,12 +15,8 @@ public class Main {
         CarFactory car = new CarFactory();
         List<Car> carList = car.createRandomCars(3);
         System.out.println(carList);
-        //porownanie za pomoca lambdy - porownuje przez dlugosc nazwy
-//        Comparator<Car> nameComparator = (o1, o2)->o1.getName().length()-o2.getName().length(); //<-wersja dluzsza
-        Comparator<Car> nameComparator = Comparator.comparingInt(o -> o.getName().length());//wersja skrócona
-        /*Lambda tez jest implementacją więc tez nam Collections.sort() zadziała*/
 
-        Collections.sort(carList, nameComparator);
+        Collections.sort(carList, new CapacityComparator());
         System.out.println(carList);
 
     }
