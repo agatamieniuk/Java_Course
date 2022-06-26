@@ -1,5 +1,6 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.exercises.Ex;
 import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
@@ -16,11 +17,12 @@ public class Main {
         Car car3 = carFactory.createRandomCar();
         Car car4 = carFactory.createRandomCar();
 
-        Map<String, Car> stringCarMap = ex5a(car1, car2, car3, car4);
-        System.out.println(stringCarMap);
-//        for (String key : stringCarMap.keySet()) {
-//            System.out.println(stringCarMap.get(key));
-//        }
+        System.out.println(car1);
+        System.out.println(car2);
+        System.out.println(car3);
+        System.out.println("--------");
+        Map<Integer, List<Car>> integerListMap = ex5b(car1, car2, car3);
+        System.out.println(integerListMap);
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -107,7 +109,20 @@ public class Main {
         return mapa;
     }
 
-    public static void ex5b() {
+    public static Map<Integer, List<Car>> ex5b(Car... cars) {
+        Map<Integer, List<Car>> mapa = new HashMap<>();
+
+        for (Car car : cars) {
+            Integer key = car.getEngine().getCapacity(); //wypełniamy klucz pojemnością silnika
+            List<Car> value = new ArrayList<>();
+            mapa.putIfAbsent(key, value); //wstawiamy arrayList aby nie miec nadpisywania wartosci w mapie (jesli nic nie ma w wartosci to wrzuca pustą arraykę)
+            value = mapa.get(key); //pobranie listy dla danego klucza (albo juz cos tam bedzie, albo jesli wyniku z wczesniejszych operacji nie ma to jest pusta arrayka)
+            value.add(car); //dodajemy do listy samochod
+
+            mapa.putIfAbsent(key, value);
+        }
+
+        return mapa;
     }
 
     public static void ex() {
