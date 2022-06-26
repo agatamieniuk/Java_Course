@@ -10,7 +10,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ex6();
+        ArrayList<Integer> integers = new ArrayList<>(Arrays.asList(2, 4, 9, 1, 3, 5));
+        Collections.sort(integers);
+        System.out.println(integers);
+
+        CarFactory car = new CarFactory();
+        List<Car> carList = car.createRandomCars(3);
+        System.out.println(carList);
+        Collections.sort(carList);
+        System.out.println(carList);
+
+//Implementacja compareTo z klasy Comparable w klasie Car (tu wkleilam aby nie szukac):
+//        @Override
+//        public int compareTo(Object o) {
+//            Car car = (Car) o;
+//            return Integer.compare(this.maxSpeed, car.getMaxSpeed());
+//        }
+
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -87,7 +103,6 @@ public class Main {
         System.out.println(map);
     }
 
-
     public static Map<String, Car> ex5a(Car... cars) {
         Map<String, Car> mapa = new HashMap<>();
 
@@ -125,6 +140,9 @@ public class Main {
             }
         }
         System.out.println(carList);
+    }
+
+    public static void ex7() {
     }
 
     public static void ex() {
