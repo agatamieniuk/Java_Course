@@ -1,5 +1,6 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
 
@@ -9,19 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<Integer> integers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
-        //Zapis długi:
-//        Iterator<Integer> iterator = integers.iterator();
-//
-//        while (iterator.hasNext()) {
-//            Integer next = iterator.next();
-//            if (next % 2 == 0) {
-//                iterator.remove();
-//            }
-//        }
-        //Zapis lambdą:
-        integers.removeIf(next -> next % 2 == 0);
-        System.out.println(integers);
+        ex6();
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -122,6 +111,20 @@ public class Main {
         }
 
         return mapa;
+    }
+
+    public static void ex6() {
+        CarFactory car = new CarFactory();
+        List<Car> carList = car.createRandomCars(3);
+        System.out.println(carList);
+        Iterator<Car> iterator = carList.iterator();
+        while (iterator.hasNext()) {
+            Car next = iterator.next();
+            if(!iterator.hasNext()){
+                iterator.remove();
+            }
+        }
+        System.out.println(carList);
     }
 
     public static void ex() {
