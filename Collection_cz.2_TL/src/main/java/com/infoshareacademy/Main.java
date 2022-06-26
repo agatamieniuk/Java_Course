@@ -1,7 +1,5 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.exercises.Ex;
-import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
 
@@ -11,18 +9,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CarFactory carFactory = new CarFactory();
-        Car car1 = carFactory.createRandomCar();
-        Car car2 = carFactory.createRandomCar();
-        Car car3 = carFactory.createRandomCar();
-        Car car4 = carFactory.createRandomCar();
-
-        System.out.println(car1);
-        System.out.println(car2);
-        System.out.println(car3);
-        System.out.println("--------");
-        Map<Integer, List<Car>> integerListMap = ex5b(car1, car2, car3);
-        System.out.println(integerListMap);
+        List<Integer> integers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        //Zapis długi:
+//        Iterator<Integer> iterator = integers.iterator();
+//
+//        while (iterator.hasNext()) {
+//            Integer next = iterator.next();
+//            if (next % 2 == 0) {
+//                iterator.remove();
+//            }
+//        }
+        //Zapis lambdą:
+        integers.removeIf(next -> next % 2 == 0);
+        System.out.println(integers);
     }
 
     public static Integer[] ex1a(Integer... params) {
