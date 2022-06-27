@@ -4,33 +4,28 @@ import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        CarFactory car = new CarFactory();
-        List<Car> carList = car.createRandomCars(3);
-        System.out.println(carList);
+        Path pathToFile = Path.of("src", "main", "resources", "user.properties");//wczytujemy plik z properties
 
-        Comparator<Car> carByCapacity = (o1, o2) -> o2.getEngine().getCapacity().compareTo(o1.getEngine().getCapacity());
-//      Comparator<Car> carByPower = (o1,o2) -> o1.getEngine().getPower() - o2.getEngine().getPower(); //wersja dluzsza by me
-        Comparator<Car> carByPower = Comparator.comparingInt(o -> o.getEngine().getPower()); //wersja krotsza by InteliJ
-//      Comparator<Car> carByColor = (o1, o2) -> o1.getColor().ordinal() - o2.getColor().ordinal();  //wersja dluzsza by me
-        Comparator<Car> carByColor = Comparator.comparingInt(o -> o.getColor().ordinal()); //wersja krotsza by InteliJ
+        Properties properties = new Properties();
+        properties.load(new FileInputStream(pathToFile.toString()));//wczytujemy plik
 
-        List<Car> carList1 = ex8a(carList, carByCapacity);
-        carList1.forEach(System.out::println); //wypisuje wszystkie elementy
+        Set<Map.Entry<Object, Object>> entrySetPropertisa = properties.entrySet();//wypisujemy Klucz=Wartosc
+        System.out.println(entrySetPropertisa);
 
-        List<Car> carList2 = ex8a(carList,carByPower);
-        carList2.forEach(System.out::println);
-//
-        List<Car> carList3 = ex8a(carList, carByColor);
-        carList3.forEach(System.out::println);
-
+        Object language = properties.get("language");//wyciagamy wartosc zapisnaa pod 'language'
+        System.out.println(language);
 
     }
 
