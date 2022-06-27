@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
-        ex14();
+        ex15();
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -177,8 +177,19 @@ public class Main {
                 .map(s -> s.getEngine().getPower())
                 .mapToInt(s -> s.intValue()).sum();
         System.out.println(sum);
-
-
     }
 
+    public static void ex15(){
+        List<String> lista = new ArrayList<>();
+        lista.add("andrzej");
+        lista.add("bob");
+        lista.add("");
+        lista.add("basia");
+        lista.add("czesia");
+        lista.add("");
+        lista.add("");
+
+        List<Integer> collect = lista.stream().map(s -> s.length()).collect(Collectors.toList());
+        System.out.println(collect);
+    }
 }
