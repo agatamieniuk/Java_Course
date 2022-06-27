@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
-        ex10();
+        ex14();
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -157,7 +157,28 @@ public class Main {
         System.out.println(sorted);
     }
 
-    public static void ex() {
+    public static void ex14() {
+        CarFactory car = new CarFactory();
+        List<Car> randomCars = car.createRandomCars(10);
+//        System.out.println(randomCars);
+
+        List<String> byName = randomCars.stream()
+                .map(s -> s.getName())
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println(byName);
+
+        List<Integer> tempListToGetEnginePower = randomCars.stream()
+                .map(s -> s.getEngine().getPower())
+                .collect(Collectors.toList());
+        System.out.println(tempListToGetEnginePower);
+
+        int sum = randomCars.stream()
+                .map(s -> s.getEngine().getPower())
+                .mapToInt(s -> s.intValue()).sum();
+        System.out.println(sum);
+
+
     }
 
 }
