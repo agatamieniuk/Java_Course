@@ -4,29 +4,14 @@ import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.model.vehicle.Car;
 import com.infoshareacademy.model.vehicle.Engine;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-
-        Path pathToFile = Path.of("src", "main", "resources", "user.properties");//wczytujemy plik z properties
-
-        Properties properties = new Properties();
-        properties.load(new FileInputStream(pathToFile.toString()));//wczytujemy plik
-
-        Set<Map.Entry<Object, Object>> entrySetPropertisa = properties.entrySet();//wypisujemy Klucz=Wartosc
-        System.out.println(entrySetPropertisa);
-
-        Object language = properties.get("language");//wyciagamy wartosc zapisnaa pod 'language'
-        System.out.println(language);
-
+    public static void main(String[] args) {
+        ex10();
     }
 
     public static Integer[] ex1a(Integer... params) {
@@ -147,6 +132,29 @@ public class Main {
 
         List<Car> cars = carList;
         return carList;
+    }
+
+    public static void ex10() {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        Map<String, Integer> letterMap = new HashMap<>();
+
+        for (Character letters : input.toCharArray()) {
+            String lettersInMap = letters.toString().trim();
+            if (lettersInMap.isBlank()) {
+                continue;
+            }
+            letterMap.putIfAbsent(lettersInMap, 0);
+            int i = letterMap.get(lettersInMap) + 1;
+            letterMap.put(lettersInMap, i);
+        }
+        System.out.println(letterMap);
+
+        List<Map.Entry<String, Integer>> sorted = letterMap.entrySet().stream()
+                .sorted((s1, s2) -> s2.getValue() - s1.getValue())
+                .collect(Collectors.toList());
+        System.out.println(sorted);
     }
 
     public static void ex() {
