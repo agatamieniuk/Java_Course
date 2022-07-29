@@ -9,7 +9,7 @@ public class Lotto {
     private int number;
     private boolean run = false;
 
-    public static void runLotto(){
+    public static void runLotto() {
         Lotto lotto = new Lotto();
         lotto.setRange();
         lotto.setNumber();
@@ -88,7 +88,8 @@ public class Lotto {
         Path pathToLotto = Path.of("src", "LottoFile.txt");
         try {
             Files.write(pathToLotto, Arrays.toString(lottoNumbers).getBytes());
-        } catch (IOException e) {  }
+        } catch (IOException e) {
+        }
     }
 
 

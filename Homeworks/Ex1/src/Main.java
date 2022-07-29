@@ -5,6 +5,7 @@ public class Main {
         System.out.println(Task1("jasio"));
         Task2();
     }
+
     public static char Task1(String word) {
         System.out.print(word + " - ");
         return word.charAt(0);

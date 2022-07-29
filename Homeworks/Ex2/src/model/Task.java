@@ -15,7 +15,7 @@ public class Task {
     }
 
     public void getTaskDescription() {
-        System.out.print("Task " + taskNumber + " (max " + maxPoints + " points): "+ shortDescription);
+        System.out.print("Task " + taskNumber + " (max " + maxPoints + " points): " + shortDescription);
     }
 
     public void setTaskNumber(int taskNumber) {

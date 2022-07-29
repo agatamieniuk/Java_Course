@@ -10,7 +10,7 @@ public class Grade {
     public Grade() {
     }
 
-    public Grade(Task task, Student student, int pointsScored, String feedback){
+    public Grade(Task task, Student student, int pointsScored, String feedback) {
         this.task = task;
         this.student = student;
         this.pointsScored = pointsScored;

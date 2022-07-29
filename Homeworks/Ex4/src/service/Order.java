@@ -3,28 +3,29 @@ package service;
 import model.Burger;
 import model.Drink;
 import model.Pizza;
+
 import java.util.Objects;
 
 public class Order {
     private int howMany;
     private double price;
 
-    public double totalPrice(Pizza pizza, Burger burger, Drink drink){
+    public double totalPrice(Pizza pizza, Burger burger, Drink drink) {
         double totalPrize = pizza.getPrice() + burger.getPrice() + drink.getPrice();
         return totalPrize;
     }
 
-    public double totalPrice(Pizza pizza, Burger burger){
+    public double totalPrice(Pizza pizza, Burger burger) {
         double totalPrize = pizza.getPrice() + burger.getPrice();
         return totalPrize;
     }
 
-    public double totalPrice(Pizza pizza, Drink drink){
+    public double totalPrice(Pizza pizza, Drink drink) {
         double totalPrize = pizza.getPrice() + drink.getPrice();
         return totalPrize;
     }
 
-    public double totalPrice(Burger burger, Drink drink){
+    public double totalPrice(Burger burger, Drink drink) {
         double totalPrize = burger.getPrice() + drink.getPrice();
         return totalPrize;
     }
