@@ -15,7 +15,8 @@ public class Student {
     }
 
     public void getStudentFullName() {
-        System.out.print(name + " " + surname + " (github: " + gitLogin + ") ");;
+        System.out.print(name + " " + surname + " (github: " + gitLogin + ") ");
+        ;
     }
 
     public void setName(String name) {

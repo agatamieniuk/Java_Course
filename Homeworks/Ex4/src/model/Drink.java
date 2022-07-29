@@ -20,7 +20,7 @@ public class Drink extends Order {
     private double drinkPrice(DrinkMenu drink, int howMany) {
         if (drink.equals(DrinkMenu.COLA)) {
             setPrice(10 * howMany);
-        } else if(drink.equals(DrinkMenu.SOK)){
+        } else if (drink.equals(DrinkMenu.SOK)) {
             setPrice(12 * howMany);
         } else {
             setPrice(15 * howMany);
