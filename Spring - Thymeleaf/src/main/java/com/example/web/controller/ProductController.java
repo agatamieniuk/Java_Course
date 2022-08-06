@@ -9,5 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ProductController {
-
+    @GetMapping("/product")
+    public String getWelcome(){
+        return "product";
+    }
 }
