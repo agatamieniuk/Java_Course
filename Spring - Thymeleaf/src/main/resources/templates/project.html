@@ -30,6 +30,10 @@
             <li th:text="#{project.client} + ': ' + ${project.client}"></li>
             <li th:text="#{project.category} + ': ' + ${project.category}"></li>
             <li th:text="#{project.active} + ': ' +  ${project.active} "></li>
+            <div th:switch="${project.active}">
+                <li th:case="true" th:text="#{project.active} + ': ' + #{form.yes}"></li>
+                <li th:case="*" th:text="#{project.active} + ': ' + #{form.no}"></li>
+            </div>
         </ul>
     </div>
 </div>
