@@ -27,7 +27,8 @@
         <ul>
             <li th:text="#{product.created} + ': ' + ${product.created}"></li>
             <li th:text="#{product.color} + ': ' + ${product.color}"></li>
-            <li th:text="#{product.ecommerce} + ': ' + ${product.ecommerce}"></li>
+            <li th:if="${product.ecommerce}" th:text="#{product.ecommerce} + ': ' + ${product.ecommerce}"></li>
+            <li th:unless="${product.ecommerce}" th:text="#{product.ecommerce} + ': ' + ${product.ecommerce}"></li>
         </ul>
     </div>
 </div>
