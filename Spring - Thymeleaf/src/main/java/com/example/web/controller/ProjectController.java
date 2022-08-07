@@ -11,13 +11,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class ProjectController {
 
+    private final ProjectService projectService;
+
     @Autowired
-    private ProjectService projectService;
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
+
 
     @GetMapping("/projects/{id}")
     public String getProject(@PathVariable Long id, Model model) {
-        ProjectDto projectDto = projectService.find(id);
-        model.addAttribute("project", projectDto);
+        model.addAttribute("project", projectService.find(id));
         return "project";
+    }
+
+    @GetMapping("/projects")
+    public String getProjects(Model model) {
+        model.addAttribute("projects", projectService.findAll());
+        return "projects";
     }
 }

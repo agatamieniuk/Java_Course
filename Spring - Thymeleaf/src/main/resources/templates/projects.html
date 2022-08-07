@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="#{project.title}"></title>
+  <link th:href="@{/css/table.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+  <div>
+    <a th:href="@{/}">
+      <button type="button" th:text="#{project.return}"></button>
+    </a>
+  </div>
+</nav>
+<h1 th:text="#{project.headline}"></h1>
+
+<table>
+  <tr>
+    <th th:text="#{project.id}"></th>
+    <th th:text="#{project.name}"></th>
+    <th th:text="#{project.link}"></th>
+  </tr>
+  <tr th:each="project,iterStat : ${projects}" th:class="${iterStat.odd}? 'grey-row'">
+    <td th:text="${project.id}"></td>
+    <td th:text="${project.name}"></td>
+    <td>
+      <a th:href="@{/projects/{id}(id=${project.id})}">
+        <button type="button" th:text="#{project.link}"></button>
+      </a>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

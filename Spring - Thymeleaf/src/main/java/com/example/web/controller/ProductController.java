@@ -11,13 +11,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class ProductController {
 
+    private final ProductService productService;
+
     @Autowired
-    private ProductService productService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/products/{id}")
-    public String getWelcome(@PathVariable Integer id, Model model){
-        ProductDto productDto = productService.find(id);
-        model.addAttribute("product", productDto);
+    public String getProduct(@PathVariable Integer id, Model model) {
+        model.addAttribute("product", productService.find(id));
         return "product";
+    }
+
+    @GetMapping("/products")
+    public String getProducts(Model model) {
+        model.addAttribute("products", productService.findAll());
+        return "products";
     }
 }

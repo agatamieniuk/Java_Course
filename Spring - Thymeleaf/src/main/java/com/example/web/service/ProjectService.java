@@ -7,6 +7,10 @@ import com.example.web.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProjectService {
 
@@ -27,5 +31,12 @@ public class ProjectService {
     public ProjectDto find(Long id) {
         Project project = repository.findById(id);
         return mapper.toDto(project);
+    }
+
+    public List<ProjectDto> findAll() {
+        Collection<Project> projects = repository.findAll();
+        return projects.stream()
+                .map(mapper::toDto)
+                .collect(Collectors.toList());
     }
 }

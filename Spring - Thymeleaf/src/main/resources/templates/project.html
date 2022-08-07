@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a th:href="@{/}">
+        <a th:href="@{/projects}">
             <button type="button" class="btn btn-primary" th:text="#{project.return}"></button>
         </a>
     </div>
@@ -30,9 +30,18 @@
             <li th:text="#{project.client} + ': ' + ${project.client}"></li>
             <li th:text="#{project.category} + ': ' + ${project.category}"></li>
             <li th:text="#{project.active} + ': ' +  ${project.active} "></li>
-                <li th:if="${project.active}" th:text="#{project.active} + ': ' + #{form.yes}"></li>
-                <li th:unless="${project.active}" th:text="#{project.active} + ': ' + #{form.no}"></li>
+            <div th:switch="${project.active}">
+                <li th:case="true" th:text="#{project.active} + ': ' +  #{form.yes}"></li>
+                <li th:case="*" th:text="#{project.active} + ': ' +  #{form.no}"></li>
             </div>
+            <!--/*
+            <div th:switch="${project.active}">
+                <li th:case="true" th:text="#{project.active} + ': ' +  #{form.yes}"></li>
+                <li th:case="*" th:text="#{project.active} + ': ' +  #{form.no}"></li>
+            </div>
+            */-->
+            <li th:if="${project.active}" th:text="#{project.active} + ': ' +  #{form.yes}"></li>
+            <li th:unless="${project.active}" th:text="#{project.active} + ': ' +  #{form.no}"></li>
         </ul>
     </div>
 </div>
