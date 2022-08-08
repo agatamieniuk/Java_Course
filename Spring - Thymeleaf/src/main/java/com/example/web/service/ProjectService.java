@@ -7,6 +7,7 @@ import com.example.web.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +25,8 @@ public class ProjectService {
     }
 
     public void create(ProjectDto dto) {
+        dto.setActive(true);
+        dto.setDueDate(LocalDate.now());
         Project project = mapper.toEntity(dto);
         repository.save(project);
     }

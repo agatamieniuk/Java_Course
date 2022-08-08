@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -10,46 +10,43 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title th:text="#{project.title}"></title>
-    <link th:href="@{/css/table.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a th:href="@{/}">
+        <a th:href="@{/projects}">
             <button type="button" class="btn btn-primary" th:text="#{project.return}"></button>
         </a>
     </div>
 </nav>
 
 <div class="container-md">
-
     <h1 th:text="#{project.headline}"></h1>
-
-    </br>
-    </br>
-    <a th:href="@{/projects/new}">
-        <button type="button" class="btn btn-primary" th:text="#{project.create}"></button>
-    </a>
-    </br>
-    </br>
-
-    <table>
-        <tr>
-            <th th:text="#{project.id}"></th>
-            <th th:text="#{project.name}"></th>
-            <th th:text="#{project.link}"></th>
-        </tr>
-        <tr th:each="project,iterStat : ${projects}" th:class="${iterStat.odd}? 'pink-row'">
-            <td th:text="${project.id}"></td>
-            <td th:text="${project.name}"></td>
-            <td>
-                <a th:href="@{/projects/{id}(id=${project.id})}">
-                    <button type="button" class="btn btn-primary" th:text="#{project.link}"></button>
-                </a>
-            </td>
-        </tr>
-    </table>
+    <div>
+        <form th:object="${project}" th:action="@{/projects/new}" method="post">
+            <label th:for="name_input_id" th:text="#{project.name}"></label>
+            <br>
+            <input type="text" id="name_input_id" th:field="*{name}">
+            <br>
+            <br>
+            <label th:for="client_input_id" th:text="#{project.client}"></label>
+            <br>
+            <input type="text" id="client_input_id" th:field="*{client}">
+            <br>
+            <br>
+            <label th:for="description_input_id" th:text="#{project.description}"></label>
+            <br>
+            <textarea type="text" id="description_input_id" th:field="*{description}"></textarea>
+            <br>
+            <br>
+            <label th:for="category_input_id" th:text="#{project.category}"></label>
+            <br>
+            <input type="text" id="category_input_id" th:field="*{category}">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary" th:text="#{project.create}"></button>
+        </form>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
