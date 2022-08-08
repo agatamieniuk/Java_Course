@@ -1,0 +1,9 @@
+{
+  "name": "KIA",
+  "maxSpeed": 160,
+  "engine": {
+    "power": 50,
+    "capacity": 1000
+  },
+  "color": "BLUE"
+}

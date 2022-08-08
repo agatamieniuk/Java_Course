@@ -1,0 +1,9 @@
+{
+  "name": "Audi",
+  "maxSpeed": 130,
+  "engine": {
+    "power": 130,
+    "capacity": 2000
+  },
+  "color": "RED"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Opel",
+  "maxSpeed": 130,
+  "engine": {
+    "power": 180,
+    "capacity": 4000
+  },
+  "color": "BLUE"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Fiat",
+  "maxSpeed": 210,
+  "engine": {
+    "power": 80,
+    "capacity": 4000
+  },
+  "color": "BLUE"
+}

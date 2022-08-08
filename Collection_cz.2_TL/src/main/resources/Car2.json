@@ -1,0 +1,9 @@
+{
+  "name": "Mercedes",
+  "maxSpeed": 100,
+  "engine": {
+    "power": 120,
+    "capacity": 3000
+  },
+  "color": "GREEN"
+}
