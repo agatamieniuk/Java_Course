@@ -2,6 +2,7 @@ package com.example.web.repository;
 
 import com.example.web.entity.Entity;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,6 +19,10 @@ public abstract class FakeRepository<T, E extends Entity<T>> {
 
     public E findById(T id) {
         return fakeDb.get(id);
+    }
+
+    public Collection<E> findAll() {
+        return fakeDb.values();
     }
 
     abstract T nextId();

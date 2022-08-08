@@ -12,6 +12,7 @@
     <title th:text="#{product.title}"></title>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a th:href="@{/products}">
@@ -19,18 +20,28 @@
         </a>
     </div>
 </nav>
+
 <div class="container-md">
     <h1 th:text="#{product.headline}"></h1>
     <div>
-        <h2 th:text="' [' + #{product.id} + ': ' + ${product.id} + '] ' + ${product.name}"></h2>
-        <p th:text="${product.desc}"></p>
-        <ul>
-            <li th:text="#{product.created} + ': ' + ${product.created}"></li>
-            <li th:text="#{product.color} + ': ' + ${product.color}"></li>
-            <li th:text="#{product.ecommerce} + ': ' + ${product.ecommerce}"></li>
-            <li th:if="${product.ecommerce}" th:text="#{product.ecommerce} + ': ' +  #{form.yes}"></li>
-            <li th:unless="${product.ecommerce}" th:text="#{product.ecommerce} + ': ' +  #{form.no}"></li>
-        </ul>
+        <form th:object="${product}" th:action="@{/products/new}" method="post">
+            <label th:for="name_input_id" th:text="#{product.name}"></label>
+            <br>
+            <input type="text" id="name_input_id" th:field="*{name}">
+            <br>
+            <br>
+            <label th:for="color_input_id" th:text="#{product.color}"></label>
+            <br>
+            <input type="text" id="color_input_id" th:field="*{color}">
+            <br>
+            <br>
+            <label th:for="desc_input_id" th:text="#{product.desc}"></label>
+            <br>
+            <textarea type="text" id="desc_input_id" th:field="*{desc}"></textarea>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary" th:text="#{product.create}"></button>
+        </form>
     </div>
 </div>
 

@@ -7,6 +7,10 @@ import com.example.web.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductService {
 
@@ -27,5 +31,12 @@ public class ProductService {
     public ProductDto find(Integer id) {
         Product product = repository.findById(id);
         return mapper.toDto(product);
+    }
+
+    public List<ProductDto> findAll() {
+        Collection<Product> products = repository.findAll();
+        return products.stream()
+                .map(mapper::toDto)
+                .collect(Collectors.toList());
     }
 }
