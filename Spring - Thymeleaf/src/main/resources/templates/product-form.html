@@ -37,7 +37,13 @@
             <br>
             <label th:for="color_input_id" th:text="#{product.color}"></label>
             <br>
-            <input type="text" id="color_input_id" th:field="*{color}">
+
+            <select id="color_input_id" th:field="*{color}">
+                <option th:each="color: ${T(com.example.web.enums.Color).values()}"
+                        th:value="${color}"
+                        th:text="${color.value}">
+                </option>
+            </select>
             <br>
             <br>
             <label th:for="desc_input_id" th:text="#{product.desc}"></label>
