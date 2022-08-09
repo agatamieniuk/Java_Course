@@ -3,6 +3,7 @@ package com.example.web.entity;
 import com.example.web.enums.Color;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Product implements Entity<Integer> {
 
@@ -12,6 +13,16 @@ public class Product implements Entity<Integer> {
     private LocalDate created;
     private Color color;
     private Boolean isEcommerce;
+    private List<String> elements;
+
+
+    public List<String> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<String> elements) {
+        this.elements = elements;
+    }
 
     public Integer getId() {
         return id;

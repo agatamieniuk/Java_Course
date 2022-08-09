@@ -15,6 +15,7 @@ public class ProductMapper {
         dto.setCreated(product.getCreated());
         dto.setColor(product.getColor());
         dto.setEcommerce(product.getEcommerce());
+        dto.setElements(product.getElements());
         return dto;
     }
 
@@ -26,6 +27,7 @@ public class ProductMapper {
         entity.setCreated(product.getCreated());
         entity.setColor(product.getColor());
         entity.setEcommerce(product.getEcommerce());
+        entity.setElements(product.getElements());
         return entity;
     }
 }

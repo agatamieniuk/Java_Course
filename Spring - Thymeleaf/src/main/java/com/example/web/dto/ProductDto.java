@@ -4,6 +4,7 @@ import com.example.web.enums.Color;
 
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.List;
 
 public class ProductDto {
     private Integer id;
@@ -14,6 +15,16 @@ public class ProductDto {
     private LocalDate created;
     private Color color;
     private Boolean isEcommerce;
+    private List<String> elements;
+
+
+    public List<String> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<String> elements) {
+        this.elements = elements;
+    }
 
     public Integer getId() {
         return id;
