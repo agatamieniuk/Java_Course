@@ -3,6 +3,7 @@ package com.example.web.entity;
 import com.example.web.enums.Color;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Product implements Entity<Integer> {
@@ -13,16 +14,7 @@ public class Product implements Entity<Integer> {
     private LocalDate created;
     private Color color;
     private Boolean isEcommerce;
-    private List<String> elements;
-
-
-    public List<String> getElements() {
-        return elements;
-    }
-
-    public void setElements(List<String> elements) {
-        this.elements = elements;
-    }
+    private List<String> elements = new LinkedList<>();
 
     public Integer getId() {
         return id;
@@ -70,5 +62,17 @@ public class Product implements Entity<Integer> {
 
     public void setEcommerce(Boolean ecommerce) {
         isEcommerce = ecommerce;
+    }
+
+    public List<String> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<String> elements) {
+        this.elements = elements;
+    }
+
+    public void addElement(String element) {
+        this.elements.add(element);
     }
 }

@@ -4,6 +4,7 @@ import com.example.web.enums.Color;
 
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ProductDto {
@@ -15,16 +16,7 @@ public class ProductDto {
     private LocalDate created;
     private Color color;
     private Boolean isEcommerce;
-    private List<String> elements;
-
-
-    public List<String> getElements() {
-        return elements;
-    }
-
-    public void setElements(List<String> elements) {
-        this.elements = elements;
-    }
+    private List<String> elements = new LinkedList<>();
 
     public Integer getId() {
         return id;
@@ -72,5 +64,17 @@ public class ProductDto {
 
     public void setEcommerce(Boolean ecommerce) {
         isEcommerce = ecommerce;
+    }
+
+    public List<String> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<String> elements) {
+        this.elements = elements;
+    }
+
+    public void addElement(String element) {
+        this.elements.add(element);
     }
 }
