@@ -1,6 +1,7 @@
 package com.example.web.repository;
 
 import com.example.web.entity.Project;
+import com.example.web.enums.Client;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +20,7 @@ public class ProjectRepository extends FakeRepository<Long, Project> {
         threads.setName("Threads");
         threads.setDescription("Use this area to describe your project. Lorem ipsum dolor sit amet.");
         threads.setDueDate(LocalDate.now().plusDays(WEEKEND));
-        threads.setClient("ABC");
+        threads.setClient(Client.ABC);
         threads.setCategory("Illustration");
         threads.setActive(true);
         save(threads);
@@ -28,7 +29,7 @@ public class ProjectRepository extends FakeRepository<Long, Project> {
         explore.setName("Explore");
         explore.setDescription("Use this area to describe your project. Lorem ipsum dolor sit amet.");
         explore.setDueDate(LocalDate.now().minusDays(WEEKEND));
-        explore.setClient("BCD");
+        explore.setClient(Client.BCD);
         explore.setCategory("Graphic Design");
         explore.setActive(false);
         save(explore);
@@ -37,7 +38,7 @@ public class ProjectRepository extends FakeRepository<Long, Project> {
         lines.setName("Lines");
         lines.setDescription("Use this area to describe your project. Lorem ipsum dolor sit amet.");
         lines.setDueDate(LocalDate.now().minusDays(WEEKEND));
-        lines.setClient("CDE");
+        lines.setClient(Client.CDE);
         lines.setCategory("Graphic Branding");
         lines.setActive(false);
         save(lines);

@@ -1,5 +1,7 @@
 package com.example.web.dto;
 
+import com.example.web.enums.Color;
+
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -7,10 +9,10 @@ public class ProductDto {
     private Integer id;
     @Size(min = 2, max = 10)
     private String name;
-    @Size(min = 5)
+    @Size(min = 10)
     private String desc;
     private LocalDate created;
-    private String color;
+    private Color color;
     private Boolean isEcommerce;
 
     public Integer getId() {
@@ -45,11 +47,11 @@ public class ProductDto {
         this.created = created;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

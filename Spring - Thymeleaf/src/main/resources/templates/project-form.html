@@ -39,7 +39,16 @@
             <br>
             <label th:for="client_input_id" th:text="#{project.client}"></label>
             <br>
-            <input type="text" id="client_input_id" th:field="*{client}">
+            <select id="client_input_id" th:field="*{client}">
+                <option th:each="client : ${T(com.example.web.enums.Client).values()}"
+                        th:value="${client}"
+                        th:text="${client.value}"
+                ></option>
+
+
+            </select>
+
+
             <br>
             <br>
             <label th:for="description_input_id" th:text="#{project.description}"></label>

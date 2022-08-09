@@ -1,5 +1,7 @@
 package com.example.web.entity;
 
+import com.example.web.enums.Color;
+
 import java.time.LocalDate;
 
 public class Product implements Entity<Integer> {
@@ -8,7 +10,7 @@ public class Product implements Entity<Integer> {
     private String name;
     private String desc;
     private LocalDate created;
-    private String color;
+    private Color color;
     private Boolean isEcommerce;
 
     public Integer getId() {
@@ -43,11 +45,11 @@ public class Product implements Entity<Integer> {
         this.created = created;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

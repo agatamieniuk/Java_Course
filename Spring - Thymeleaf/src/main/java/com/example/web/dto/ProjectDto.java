@@ -1,5 +1,7 @@
 package com.example.web.dto;
 
+import com.example.web.enums.Client;
+
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -10,7 +12,7 @@ public class ProjectDto {
     @Size(min = 10)
     private String description;
     private LocalDate dueDate;
-    private String client;
+    private Client client;
     private String category;
     private Boolean active;
 
@@ -46,11 +48,11 @@ public class ProjectDto {
         this.dueDate = dueDate;
     }
 
-    public String getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(String client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 

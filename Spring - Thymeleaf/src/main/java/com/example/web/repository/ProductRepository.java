@@ -1,6 +1,7 @@
 package com.example.web.repository;
 
 import com.example.web.entity.Product;
+import com.example.web.enums.Color;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +19,7 @@ public class ProductRepository extends FakeRepository<Integer, Product> {
         shirt.setName("Shirt");
         shirt.setDesc("Use this area to describe your product. Lorem ipsum dolor sit amet.");
         shirt.setCreated(LocalDate.now());
-        shirt.setColor("Black");
+        shirt.setColor(Color.BLACK);
         shirt.setEcommerce(true);
         save(shirt);
 
@@ -26,7 +27,7 @@ public class ProductRepository extends FakeRepository<Integer, Product> {
         sweatshirt.setName("Sweatshirt");
         sweatshirt.setDesc("Use this area to describe your product. Lorem ipsum dolor sit amet.");
         sweatshirt.setCreated(LocalDate.now().plusDays(1));
-        sweatshirt.setColor("Black");
+        sweatshirt.setColor(Color.BLACK);
         sweatshirt.setEcommerce(false);
         save(sweatshirt);
 
@@ -34,7 +35,7 @@ public class ProductRepository extends FakeRepository<Integer, Product> {
         sweatpants.setName("Sweatpants");
         sweatpants.setDesc("Use this area to describe your product. Lorem ipsum dolor sit amet.");
         sweatpants.setCreated(LocalDate.now().plusDays(2));
-        sweatpants.setColor("White");
+        sweatpants.setColor(Color.WHITE);
         sweatpants.setEcommerce(false);
         save(sweatpants);
 

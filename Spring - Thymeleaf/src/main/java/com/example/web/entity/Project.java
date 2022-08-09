@@ -1,5 +1,7 @@
 package com.example.web.entity;
 
+import com.example.web.enums.Client;
+
 import java.time.LocalDate;
 
 public class Project implements Entity<Long> {
@@ -8,7 +10,7 @@ public class Project implements Entity<Long> {
     private String name;
     private String description;
     private LocalDate dueDate;
-    private String client;
+    private Client client;
     private String category;
     private Boolean active;
 
@@ -44,11 +46,11 @@ public class Project implements Entity<Long> {
         this.dueDate = dueDate;
     }
 
-    public String getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(String client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 
