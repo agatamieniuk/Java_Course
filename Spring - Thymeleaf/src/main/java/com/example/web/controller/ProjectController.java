@@ -27,6 +27,7 @@ public class ProjectController {
     @GetMapping("/projects/{id}")
     public String getProject(@PathVariable Long id, Model model) {
         model.addAttribute("project", projectService.find(id));
+        model.addAttribute("prevPath", "projects");
         return "project";
     }
 
@@ -48,7 +49,10 @@ public class ProjectController {
         if (bindingResult.hasErrors()) {
             return "project-form";
         }
+
         projectService.create(project);
+
         return "project-form-success";
+
     }
 }
