@@ -1,10 +1,13 @@
 package com.example.web.dto;
 
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 public class ProjectDto {
     private Long id;
+    @Size(min = 2, max = 10)
     private String name;
+    @Size(min = 10)
     private String description;
     private LocalDate dueDate;
     private String client;
