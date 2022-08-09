@@ -40,7 +40,7 @@
                 </tr>
                 <tr th:each="element,iterStat : ${product.elements}" th:class="${iterStat.odd}? 'grey-row'">
                     <td th:text="${iterStat.count}"></td>
-                    <td th:text="${element}"></td>
+                    <td th:text="${element.name}"></td>
                 </tr>
             </table>
         </ul>

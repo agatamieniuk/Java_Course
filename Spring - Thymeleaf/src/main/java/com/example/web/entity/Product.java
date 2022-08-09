@@ -14,7 +14,7 @@ public class Product implements Entity<Integer> {
     private LocalDate created;
     private Color color;
     private Boolean isEcommerce;
-    private List<String> elements = new LinkedList<>();
+    private List<ProductElement> elements = new LinkedList<>();
 
     public Integer getId() {
         return id;
@@ -64,15 +64,15 @@ public class Product implements Entity<Integer> {
         isEcommerce = ecommerce;
     }
 
-    public List<String> getElements() {
+    public List<ProductElement> getElements() {
         return elements;
     }
 
-    public void setElements(List<String> elements) {
+    public void setElements(List<ProductElement> elements) {
         this.elements = elements;
     }
 
-    public void addElement(String element) {
+    public void addElement(ProductElement element) {
         this.elements.add(element);
     }
 }

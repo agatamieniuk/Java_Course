@@ -16,7 +16,7 @@ public class ProductDto {
     private LocalDate created;
     private Color color;
     private Boolean isEcommerce;
-    private List<String> elements = new LinkedList<>();
+    private List<ProductElementDto> elements = new LinkedList<>();
 
     public Integer getId() {
         return id;
@@ -66,15 +66,15 @@ public class ProductDto {
         isEcommerce = ecommerce;
     }
 
-    public List<String> getElements() {
+    public List<ProductElementDto> getElements() {
         return elements;
     }
 
-    public void setElements(List<String> elements) {
+    public void setElements(List<ProductElementDto> elements) {
         this.elements = elements;
     }
 
-    public void addElement(String element) {
+    public void addElement(ProductElementDto element) {
         this.elements.add(element);
     }
 }

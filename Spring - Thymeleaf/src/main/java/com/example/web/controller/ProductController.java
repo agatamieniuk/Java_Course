@@ -1,6 +1,7 @@
 package com.example.web.controller;
 
 import com.example.web.dto.ProductDto;
+import com.example.web.dto.ProductElementDto;
 import com.example.web.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,7 +58,7 @@ public class ProductController {
 
     @PostMapping(value = "new", params = {"addElement"})
     public String addElement(@ModelAttribute("product") ProductDto product) {
-        product.addElement("");
+        product.addElement(new ProductElementDto());
         return "product-form";
     }
 

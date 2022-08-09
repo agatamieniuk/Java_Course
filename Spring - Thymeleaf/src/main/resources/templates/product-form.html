@@ -67,7 +67,7 @@
                 <tr th:each="element,iterStat : *{elements}" th:class="${iterStat.odd}? 'grey-row'">
                     <td th:text="${iterStat.count}"></td>
                     <td>
-                        <input type="text" th:field="*{elements[__${iterStat.index}__]}" />
+                        <input type="text" th:field="*{elements[__${iterStat.index}__].name}" />
                     </td>
                     <td>
                         <button type="submit" name="removeElement" th:value="${iterStat.index}" th:text="#{product.element.remove}"></button>
