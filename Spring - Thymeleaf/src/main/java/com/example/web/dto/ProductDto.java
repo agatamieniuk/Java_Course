@@ -1,10 +1,13 @@
 package com.example.web.dto;
 
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 public class ProductDto {
     private Integer id;
+    @Size(min = 2, max = 10)
     private String name;
+    @Size(min = 5)
     private String desc;
     private LocalDate created;
     private String color;

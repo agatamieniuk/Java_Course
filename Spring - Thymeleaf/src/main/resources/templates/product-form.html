@@ -27,6 +27,11 @@
         <form th:object="${product}" th:action="@{/products/new}" method="post">
             <label th:for="name_input_id" th:text="#{product.name}"></label>
             <br>
+            <div th:if="${#fields.hasErrors('name')}" class="alert alert-danger">
+                <ul>
+                    <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                </ul>
+            </div>
             <input type="text" id="name_input_id" th:field="*{name}">
             <br>
             <br>
@@ -37,6 +42,11 @@
             <br>
             <label th:for="desc_input_id" th:text="#{product.desc}"></label>
             <br>
+            <div th:if="${#fields.hasErrors('desc')}" class="alert alert-danger">
+                <ul>
+                    <li th:each="err : ${#fields.errors('desc')}" th:text="${err}"></li>
+                </ul>
+            </div>
             <textarea type="text" id="desc_input_id" th:field="*{desc}"></textarea>
             <br>
             <br>
