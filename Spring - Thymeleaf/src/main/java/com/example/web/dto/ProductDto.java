@@ -1,14 +1,22 @@
 package com.example.web.dto;
 
+import com.example.web.enums.Color;
+
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ProductDto {
     private Integer id;
+    @Size(min = 2, max = 10)
     private String name;
+    @Size(min = 10)
     private String desc;
     private LocalDate created;
-    private String color;
+    private Color color;
     private Boolean isEcommerce;
+    private List<ProductElementDto> elements = new LinkedList<>();
 
     public Integer getId() {
         return id;
@@ -42,11 +50,11 @@ public class ProductDto {
         this.created = created;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -56,5 +64,17 @@ public class ProductDto {
 
     public void setEcommerce(Boolean ecommerce) {
         isEcommerce = ecommerce;
+    }
+
+    public List<ProductElementDto> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<ProductElementDto> elements) {
+        this.elements = elements;
+    }
+
+    public void addElement(ProductElementDto element) {
+        this.elements.add(element);
     }
 }

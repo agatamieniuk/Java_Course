@@ -1,6 +1,10 @@
 package com.example.web.entity;
 
+import com.example.web.enums.Color;
+
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Product implements Entity<Integer> {
 
@@ -8,8 +12,9 @@ public class Product implements Entity<Integer> {
     private String name;
     private String desc;
     private LocalDate created;
-    private String color;
+    private Color color;
     private Boolean isEcommerce;
+    private List<ProductElement> elements = new LinkedList<>();
 
     public Integer getId() {
         return id;
@@ -43,11 +48,11 @@ public class Product implements Entity<Integer> {
         this.created = created;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -57,5 +62,17 @@ public class Product implements Entity<Integer> {
 
     public void setEcommerce(Boolean ecommerce) {
         isEcommerce = ecommerce;
+    }
+
+    public List<ProductElement> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<ProductElement> elements) {
+        this.elements = elements;
+    }
+
+    public void addElement(ProductElement element) {
+        this.elements.add(element);
     }
 }
