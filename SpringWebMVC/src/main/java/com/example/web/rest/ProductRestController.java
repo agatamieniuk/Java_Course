@@ -1,10 +1,7 @@
 package com.example.web.rest;
 
 import com.example.web.dto.ProductDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/products/clothes")
@@ -19,10 +16,12 @@ public class ProductRestController {
     }
 
     @GetMapping("t-shirts/{id}")
-    public ProductDto getProduct(@PathVariable Long id) { //nazwa jak nazwa zmiennej z klasy Product
+    public ProductDto getProduct(@PathVariable Long id, @RequestParam(required = false, name = "text", defaultValue = "cool t-shirt") String name) { //chce, zeby w przeglądarce zmienna nie była "name" tylko "tekst" więc podaje w parametrze to słowo
+                                //deflaut value - jesli nei bedzie nic podane, to slowo bedzie wartoscia domyślną
+                                //required = false -> nie wymagamy kazdego parametru zawartego w nawiasie
         ProductDto productDto = new ProductDto();
         productDto.setId(id);
-        productDto.setName("cool t-shirt");
+        productDto.setName(name);
         return productDto;
     }
 }
