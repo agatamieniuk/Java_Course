@@ -113,7 +113,7 @@ public class ProductRestControllerTest {
      * }
      * ----------------------------
      * Oczekiwana odpowiedź:
-     * Status: 200 OK
+     * Status: 201 CREATED
      * Typ odpowiedzi: application/json
      * Body:
      * {
