@@ -1,6 +1,7 @@
 package com.example.web.rest;
 
 import com.example.web.dto.BookDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,6 +21,12 @@ public class BookRestController {
         BookDto bookDto = new BookDto();
         bookDto.setIsbn(id);
         bookDto.setTitle(title);
+        return bookDto;
+    }
+
+    @PostMapping("novels")
+    @ResponseStatus(HttpStatus.CREATED)
+    public BookDto saveBook(@RequestBody BookDto bookDto){
         return bookDto;
     }
 }
