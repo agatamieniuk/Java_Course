@@ -1,6 +1,7 @@
 package com.example.web.rest;
 
 import com.example.web.dto.ProductDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,6 +23,12 @@ public class ProductRestController {
         ProductDto productDto = new ProductDto();
         productDto.setId(id);
         productDto.setName(name);
+        return productDto;
+    }
+
+    @PostMapping("t-shirts")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProductDto saveProduct(@RequestBody ProductDto productDto) {
         return productDto;
     }
 }
