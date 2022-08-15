@@ -2,10 +2,9 @@ package com.infoshareacademy.controller;
 
 import com.infoshareacademy.domain.Book;
 import com.infoshareacademy.repository.Books;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 
 
 import java.util.Random;
