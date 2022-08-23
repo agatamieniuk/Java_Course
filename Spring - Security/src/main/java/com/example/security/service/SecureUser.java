@@ -16,6 +16,7 @@ public class SecureUser implements UserDetails {
     private String password;
     private List<String> roles;
 
+    //metoda do przydzielania ról i zarządzania nimi pozniej
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (roles != null && !roles.isEmpty()) {
