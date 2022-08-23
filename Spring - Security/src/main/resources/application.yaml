@@ -11,3 +11,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
