@@ -32,9 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl(SIGN_IN_PAGE + "?error")
                 .and()
                 .logout()
-                .logoutUrl(SIGN_OUT_API)
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl(HOME_PAGE);
+                .logoutUrl("api/sign-out")
+                .logoutSuccessUrl(HOME_PAGE)
+                .deleteCookies("JESSONID");
+//                .and()
+//                .logout()
+//                .logoutUrl(SIGN_OUT_API)
+//                .invalidateHttpSession(true) //domyslnie włączone
+//                .deleteCookies("JSESSIONID")
+//                .logoutSuccessUrl(HOME_PAGE);
     }
 }
