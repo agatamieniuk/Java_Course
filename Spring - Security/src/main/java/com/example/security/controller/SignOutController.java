@@ -10,4 +10,8 @@ public class SignOutController {
     public String signOut() {
         return "sign-out";
     }
+//    @GetMapping("/sign-out")
+//    public String signOut() {
+//        return "sign-out";
+//    }
 }
