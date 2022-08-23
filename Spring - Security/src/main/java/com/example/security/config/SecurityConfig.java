@@ -29,7 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage(SIGN_IN_PAGE)
                 .loginProcessingUrl(SIGN_IN_API)
                 .defaultSuccessUrl(DASHBOARD_PAGE, true)
-                .failureUrl(SIGN_IN_PAGE + "?error")
+//                .failureUrl(SIGN_IN_PAGE + "?error")
+                .failureUrl(SIGN_IN_PAGE + "?error") //jesli podamy zly login/haslo to pojawimy sie na stronie logowania
                 .and()
                 .logout()
                 .logoutUrl("api/sign-out")
