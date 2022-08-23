@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+//implementacja UserDetails do wykorzystania metod tego interface (sluzy do laczenia w bazie)
 public class SecureUser implements UserDetails {
     private Integer id;
     private String username;

@@ -22,6 +22,7 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    //nadpisana metoda ktora pozniej zczyta bazę danych
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)
