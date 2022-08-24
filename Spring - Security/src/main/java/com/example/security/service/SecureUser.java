@@ -9,13 +9,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+//implementacja UserDetails do wykorzystania metod tego interface (sluzy do laczenia w bazie)
 public class SecureUser implements UserDetails {
     private Integer id;
     private String username;
     private String password;
     private List<String> roles;
 
+    //metoda do przydzielania ról i zarządzania nimi pozniej
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (roles != null && !roles.isEmpty()) {
